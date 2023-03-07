@@ -12,7 +12,9 @@ import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import { IconButton,Grid, Divider } from "@mui/material";
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import TwitterIcon from '@mui/icons-material/Twitter';
+import createBreakpoints from "@material-ui/core/styles/createBreakpoints";
 export default function SliderComponent(){
+
 
   var rs = useRef();
     var reviews = [
@@ -38,6 +40,7 @@ export default function SliderComponent(){
         rs.current.slickNext();
       
     }
+    
       const handlePrev = () => {
         rs.current.slickPrev();
       };
@@ -46,8 +49,8 @@ export default function SliderComponent(){
             return (
            
             <Grid sx={{maxWidth:202,maxHeight:247.39,margin:10,boxShadow:3,borderRadius:4}}>
-              <Grid sx={{height:140,display:'flex',justifyContent:'center', background : `url(${item.bg})`,borderTopLeftRadius:20,borderTopRightRadius:20}}>
-<img src={item.image}/>
+              <Grid sx={{height:140,display:'flex',padding:'1rem',justifyContent:'center', background : `url(${item.bg})`,borderTopLeftRadius:20,borderTopRightRadius:20}}>
+                <img src={item.image}/>
               </Grid>
              <Grid sx={{height:107.39}}>
              <Typography gutterBottom   style={{display:'flex',justifyContent:'center',fontSize:15.68,fontWeight:'bold'}}component="div">
@@ -57,7 +60,8 @@ export default function SliderComponent(){
                  {item.role}
                 </Typography>
                 <Typography variant="body2" style={{display:'flex',justifyContent:'center'}} color="#959595"  >
-                <LinkedInIcon fontSize="large"/>
+                <LinkedInIcon fontSize="large" />
+                <span style={{width:'0.9rem'}}></span>
                  <TwitterIcon fontSize="large" />
                 </Typography>
              </Grid>
@@ -77,7 +81,7 @@ export default function SliderComponent(){
           style={{cursor:'pointer'}}
 
         >
-          <img src="/images/leftarrow.png"/>
+          <img src="/images/leftarrow.png" style={{position:"relative",left:"-4.98rem"}}/>
         </IconButton>
         </Grid>
         <Grid style={{marginTop:20,color:"#525252",fontWeight:'bold',fontSize:30}}  >
@@ -93,7 +97,7 @@ export default function SliderComponent(){
           variant="contained"
           
         >
-          <img src="/images/rightarrow.png"/>
+          <img src="/images/rightarrow.png" style={{position:"relative",right:"-4.98rem"}}/>
         </IconButton>
         </Grid>
         
@@ -101,13 +105,13 @@ export default function SliderComponent(){
           <Grid style={{}}> 
         <Slider {...settings} ref={rs} >
           <div>
-          <div style={{display:'grid',gridTemplateColumns:"1fr 1fr 1fr 1fr"}}> 
+          <div style={{display:'grid',gridTemplateColumns:"repeat(auto-fill, minmax(22rem, 1fr))"}}> 
           
            {showComponent()}
            </div>
            </div>
            <div>
-          <div style={{display:'grid',gridTemplateColumns:"1fr 1fr 1fr 1fr"}}> 
+          <div style={{display:'grid',gridTemplateColumns:"repeat(auto-fill, minmax(22rem, 1fr))"}}> 
           
            {showComponent()}
            </div>
