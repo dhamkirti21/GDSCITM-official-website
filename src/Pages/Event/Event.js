@@ -49,7 +49,7 @@ function Event() {
             </div>
         </div>
 
-        <div className='list'>
+        <div className='list' style={{cursor:"pointer"}}>
             <div className={all?"all":"all1"} onClick={handle}>All</div>
             <div className={all?"up1":"up"} onClick={handle}>Upcoming</div>
             <div className='past'>Past</div>
